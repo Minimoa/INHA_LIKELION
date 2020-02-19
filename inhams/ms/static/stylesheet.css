@@ -161,11 +161,38 @@ nav li:nth-child(2){
 #detail div{
     border-top:1px solid var(--basic-br-color)
 }
+
+#new{
+	max-width: 50%;
+	margin: 10px auto;
+	padding: 16px;
+}
+
+#new h1{
+	background: #43D1AF;
+	padding: 20px;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+
+#new .inp{
+    -webkit-transition: all 0.30s ease-in-out;
+	box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+}
+
 #new .btn{
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	width: 100%;
+	padding: %;
 	background: #43D1AF;
 	border-bottom: 2px solid #30C29E;
 	border-top-style: none;
