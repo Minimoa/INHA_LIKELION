@@ -18,6 +18,7 @@ from django.urls import path
 import ms.views
 
 urlpatterns = [
+    path('new/', ms.views.new, name="new"),
     path('admin/', admin.site.urls),
     path('',ms.views.home,name="home")
 ]
