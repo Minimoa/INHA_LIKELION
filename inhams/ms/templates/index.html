@@ -1,7 +1,28 @@
+<!--
+    index
+    이정인
+    20.02.19
+-->
 {% extends 'layout.html' %}
 {% block layoutblock %}
 
-<section>
+<script>
+    $(function(){
+        $(".container").click(function(){
+            var cid = $(this).attr("no");
+            var tmp = $(this).children(".des").html();
+            $(this).children(".des").html($("input[no='"+cid+"'").val());
+            $("input[no='"+cid+"'").val(tmp);
+            $(this).children("ul").toggle();
+            
+        });
+        $(".edit").click(function(){
+            location.href="detail";
+        });
+    });
+</script>
+<a href="#" class="float_btn">+</a>
+<section id="main">
     <nav>
         <form action="">
             <ul>
@@ -15,21 +36,15 @@
         </form>
     </nav>
     <article>
-        <a href="#" class="container">
-            틀딱
+        <a href="#" class="container" no="1"> 
+            <ul no="1">
+                <li class="edit">수정</li>
+                <li>삭제</li>
+            </ul n>
+            <div>틀딱</div>
+            <div class="des"></div>
         </a>
-        <a href="#" class="container">
-            틀딱
-        </a> 
-        <a href="#" class="container">
-            틀딱
-        </a> 
-        <a href="#" class="container">
-            틀딱
-        </a> 
-        <a href="#" class="container">
-            틀딱
-        </a>  
+        <input type="hidden" no="1" value="늙은이. 어휴 정게(정치게시판) 할배들 틀니 딱딱거리는 소리가 여기까지 들리네 라는 표현에서 유래.">
     </article>
 </section>
 {% endblock %}

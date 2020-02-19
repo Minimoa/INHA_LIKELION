@@ -19,5 +19,6 @@ import ms.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',ms.views.home,name="home")
+    path('',ms.views.home,name="home"),
+    path('detail',ms.views.detail,name="detail"),
 ]
