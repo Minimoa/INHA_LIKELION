@@ -46,5 +46,21 @@
         </a>
         <input type="hidden" no="1" value="늙은이. 어휴 정게(정치게시판) 할배들 틀니 딱딱거리는 소리가 여기까지 들리네 라는 표현에서 유래.">
     </article>
+    <h2>홈화면</h2>
+<a href="{% url 'new' %}">글쓰기</a>
+
+<!--
+    정윤호
+    20.02.22
+    임시 테스트
+-->
+{% for word in words.all %}
+    <h2>단어명 : {{word.title}}</h2>
+    <p>작성날짜 : {{word.pub_date}}</p>
+    <p>작성자 : {{word.writer}}</p>
+    <p>내용 : {{word.summary}}...<a href="{% url 'detail' word.id %}">more</a></p>
+{% endfor %}
+<!--임시 테스트-->
+
 </section>
 {% endblock %}

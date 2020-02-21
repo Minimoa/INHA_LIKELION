@@ -1,0 +1,27 @@
+<!--
+    정윤호
+    20.02.22
+    임시 테스트
+-->
+<h2>수정화면</h2>
+<a href="{% url 'home' %}">홈화면</a>
+<br><br>
+<form action="{% url 'update' word.id %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="title">단어명 : </label><br>
+        <input type="text" value='{{word.title}}' name="title" id="title">
+    </div>
+    <br>
+    <div>
+        <label for="title">작성자 : </label><br>
+        <input type="text" value ='{{word.writer}}' name="writer" id="writer">
+    </div>
+    <br>
+    <div>
+        <label for="content">내용 : </label><br>
+        <textarea name="content" id="content" col="300" rows="20">{{word.content}}</textarea>
+    </div>
+    <button type="submit">수정</button>
+</form>
+<!--임시 테스트-->

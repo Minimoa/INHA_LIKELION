@@ -5,6 +5,21 @@
 -->
 {% extends 'layout.html' %}
 {% block layoutblock %}
-<section id="detail"> 
+<section id="detail">
+<!--
+    정윤호
+    20.02.22
+    임시 테스트
+-->   
+    <h2>세부내용화면</h2>
+    <a href="{% url 'home' %}">홈화면</a>
+
+    <h2>단어명 : {{word.title}}</h2>
+    <p>작성날짜 : {{word.pub_date}}</p>
+    <p>작성자 : {{word.writer}}</p>
+    <p>내용 : {{word.content}}</p>
+<!--임시 테스트-->
+<a href="{% url 'edit' word.id %}">수정하기</a><br>
+<a href="{% url 'delete' word.id %}">삭제하기</a>
 </section>
 {%endblock%}
