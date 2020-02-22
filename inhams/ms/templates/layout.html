@@ -10,22 +10,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/static/stylesheet.css?{% now 'U' %}"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB --> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+    <!--<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"> -->
+    <script src="https://kit.fontawesome.com/4ecc4bd96f.js" crossorigin="anonymous"></script>
     <title>일베용어사전</title>
 </head>
+<script>
+    $(function(){
+        $("header>div>i").click(function(){
+            var cid = $(this).attr("no");
+            $(this).parents("div").hide(); 
+            $("header>div:nth-child("+cid+")").fadeIn();
+        });
+    })
+</script>
 <body>
-    <header>
-        <a href="/">일베용어사전</a>
+    <header> 
+        <div>
+            <i class="fas fa-search" no= "2"></i>
+            <a href="{% url 'home' %}">일베용어사전</a> 
+        </div>
+        <div>
+            <form action=""> 
+                <input type="text" name="seacrch" id="search" placeholder="검색어를 입력하세요"> 
+            </form> 
+            <i class="far fa-times-circle" no="1"></i>
+        </div>
     </header>
     
     {% block layoutblock %}
     {% endblock %}  
     <footer>
-        이정인<br/>
-        이대현<br/>
-        정윤호<br/>
-        장세범<br/>
-        이희주
+        <div>
+            <h3>인하대학교</h3><br/>
+            이정인&nbsp;|&nbsp;https://github.com/Minimoa<br/>
+            이대현&nbsp;|&nbsp;https://github.com/hidaehyunlee<br/>
+            정윤호&nbsp;|&nbsp;https://github.com/bucks09<br/>
+            장세범&nbsp;|&nbsp;https://github.com/sehbeom<br/>
+            최희주&nbsp;|&nbsp;https://github.com/sehbeom<br/>
+        </div>
     </footer>
 </body>
 </html>

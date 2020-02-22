@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block layoutblock %}
-<section id="new">   
+<section class="new">   
   <form action="{% url 'create' %}" method="POST">
     <h1>단어 추가하기</h1>
     {% csrf_token %}

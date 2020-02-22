@@ -1,8 +1,32 @@
+ 
+{% extends 'layout.html' %}
+{% block layoutblock %}
+<section class="new">   
+    <form action="{% url 'update' word.id %}" method="POST">
+    <h1>단어 추가하기</h1>
+    {% csrf_token %}
+    <input type="text" name="title" id="title" class="inp" value='{{word.title}}' >
+    <input type="text" name="writer" id="writer" class="inp" value ='{{word.writer}}' >
+    <textarea name="content" id="content" class="inp" rows="3" >{{word.content}}</textarea>
+    <button type="submit" class="btn">입력</button>        
+  </form>
+</section>
+  
+{% endblock %}
+
 <!--
-    정윤호
-    20.02.22
-    임시 테스트
--->
+  정윤호
+  20.02.22
+
+  1. 작성자 폼(input) 추가
+  2. 각 입력 폼 태그에 
+    name="title" id="title" ,
+    name="writer" id="writer"
+    name="content" id="content"
+    추가
+  3. 버튼 타입 "submit"으로 변경
+
+
 <h2>수정화면</h2>
 <a href="{% url 'home' %}">홈화면</a>
 <br><br>
@@ -24,4 +48,5 @@
     </div>
     <button type="submit">수정</button>
 </form>
+-->
 <!--임시 테스트-->

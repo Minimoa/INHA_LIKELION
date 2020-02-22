@@ -8,59 +8,55 @@
 
 <script>
     $(function(){
-        $(".container").click(function(){
-            var cid = $(this).attr("no");
-            var tmp = $(this).children(".des").html();
-            $(this).children(".des").html($("input[no='"+cid+"'").val());
-            $("input[no='"+cid+"'").val(tmp);
-            $(this).children("ul").toggle();
-            
-        });
-        $(".edit").click(function(){
-            location.href="detail";
-        });
+      $("tr").click(function(){
+        location.href="/word/detail/"+$(this).attr("no");
+      });
     });
-</script>
-<a href="new" class="float_btn">+</a>
+</script> 
+<a  href="/word/new/" class="fas fa-pen-square float_btn"></a>
 <section id="main">
-    <nav>
-        <form action="">
-            <ul>
-                <li>
-                    <input type="text" name="seacrch" id="search" class="inp">
-                </li>
-                <li>
-                    <input type="submit" value="검색" class="btn">
-                </li>
-            </ul>
-        </form>
-    </nav>
-    <article>
-        <a href="#" class="container" no="1"> 
-            <ul no="1">
-                <li class="edit">수정</li>
-                <li>삭제</li>
-            </ul n>
-            <div>틀딱</div>
-            <div class="des"></div>
-        </a>
-        <input type="hidden" no="1" value="늙은이. 어휴 정게(정치게시판) 할배들 틀니 딱딱거리는 소리가 여기까지 들리네 라는 표현에서 유래.">
-    </article>
-    <h2>홈화면</h2>
-<a href="{% url 'new' %}">글쓰기</a>
+<article>
+    <table>
+        <tr>
+            <td>단어</td>
+            <td>뜻</td>
+            <td>등록일자</td>
+        </tr>
+            {% if words %}
+            {% for word in words.all %}
+                <tr no="{{word.id}}">
+                   
+                <!--
+                    정윤호
+                    20.02.22
+                    임시 테스트 
+                
+                    <h2>홈화면</h2>
+                    <a href="{% url 'new' %}">글쓰기</a>
+                    <h2>단어명 : {{word.title}}</h2>
+                    <p>작성날짜 : {{word.pub_date}}</p>
+                    <p>작성자 : {{word.writer}}</p>
+                    <p>내용 : {{word.summary}}...<a href="{% url 'detail' word.id %}">more</a></p>
+               
+                -->
+                    <td>{{word.title}}</td>
+                    <td>{{word.summary}}</td>
+                    <td><i>{{word.pub_date | date:"Y-m-d" }}</i></td> 
+                </tr>
+            {% endfor %} 
+            {% else %}
+            <tr>
+                <td colspan="3">
+                    결과가 없습니다.
+                </td>
+            </tr>
+            {%endif%} 
+            
+    </table>
+   
+</article>
 
-<!--
-    정윤호
-    20.02.22
-    임시 테스트
--->
-{% for word in words.all %}
-    <h2>단어명 : {{word.title}}</h2>
-    <p>작성날짜 : {{word.pub_date}}</p>
-    <p>작성자 : {{word.writer}}</p>
-    <p>내용 : {{word.summary}}...<a href="{% url 'detail' word.id %}">more</a></p>
-{% endfor %}
-<!--임시 테스트-->
 
 </section>
+
 {% endblock %}

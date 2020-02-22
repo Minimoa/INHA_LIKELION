@@ -1,15 +1,20 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Song+Myung&display=swap');
 *{
-   font-family: 'Nanum Gothic', sans-serif;
+   font-family: 'Song Myung', sans-serif;
    --basic-br-color:#eeeeee; /*기본 border 색깔 변수*/
-   --basic-txt-color:#383838;/*기본 글자 색깔 변수*/ 
-   color:var(--basic-txt-color);
-   --red:#FA5A5A;
-   --gray:#9C9C9C;
+   --basic-txt-color:#333;/*기본 글자 색깔 변수*/  
+   color:var(--basic-txt-color); 
    padding:0;
    margin:0;
 }
+/* 스크롤  */
+body::-webkit-scrollbar{width: 10px;}
+body::-webkit-scrollbar-track {background-color:#ffffff;}
+body::-webkit-scrollbar-thumb {background-color:rgba(54, 54, 54, 0.692);border-radius: 10px;}
+body::-webkit-scrollbar-thumb:hover {background: rgba(133, 133, 133, 0.603);}
+body::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+display:none;}  
+
 a{
     text-decoration: none;
     color:var(--basic-txt-color);
@@ -18,7 +23,6 @@ a{
 body{ 
  width: 100%;
  height:100%;
- background:#ffffff;
 } 
 ul{
     list-style:none;
@@ -27,55 +31,76 @@ ul{
 }
 header{
  display:block;
- padding:30px;
+ padding:15px 5%; 
  text-align: center;
+ width:90%;
+ position: fixed;
+ background: #ffffffce;
+ top:0; 
+ z-index: 1000;
+}
+header div:nth-child(1){
+    display:block;
+}
+header div:nth-child(2){
+    display:none;
 }
 header a{
     color:var(--basic-txt-color);
     font-size: 2em;
     font-weight: bold;
+    clear:right;     
+} 
+header i{
+    float:right;   
+    font-size: 2em;
+    cursor: pointer;
+    margin-top:10px;
+} 
+header form{
+    width:82%;
+    display:inline-block;
+    margin:auto;
+    margin-left:6%;
 }
+header form input{
+    border:0px; 
+    width:100%;  
+    padding:10px 0px;
+    font-size: 1.5em;
+    background:transparent;
+}
+header form input:focus {outline:none;}
+ 
 footer{
+    font-family: 'Nanum Gothic Coding';
     display:block;
     padding:10px 0px 10px 0px;
     position: relative;
-    bottom:0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     font-size: 0.8em;
-    padding-left:10%;
-    background-color: #ffffff;
+    background-color: #6ca9fa;
+}
+footer div{
+    margin-left:10%;
+    padding:5px 0px;
+}
+footer div,footer h3{ 
+    color:rgb(255, 230, 0);
 }
 section{
     display:block;
     width:80%;
-    height:1000px;
+    min-height:500px;  
     margin:auto;
-    padding:30px 0px 30px 0px;
-    background-color: #e4e3e3;
+    margin-top:6%;
+    padding:30px 0px 30px 0px;  
 }
 
-nav{
-    display:block;
-    width:100%;
-    padding-top:5px;
-    text-align: center;
-} 
-nav li{
-    display:inline-block;
-}
-nav .inp, nav .btn{
-    width:100%;
-    padding:15px 5px 15px 5px;
-    font-size: 1em;
-    font-weight: bold;
-}
-nav li:nth-child(1){
-    width:66%;
-}
-nav li:nth-child(2){
-    width:15%;
-    margin-left:1%;
-}
-/*************Class ***********************/
+
+/*************Class ***********************/ 
 .inline{
     display:inline-block;
 }
@@ -84,39 +109,46 @@ nav li:nth-child(2){
     font-size: 0.8em;
 }
 #main article{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    width:85%;
-    margin:30px auto auto auto;  
-    position: relative;
+    display:block;
+    width:100%;
 }
-.container{
-    border:1px solid var(--basic-br-color);
-    width:80%;
-    padding: 35px 10px 35px 10px;
+#main table{
     display: block;
-    margin:10px auto auto auto;
-    background-color: rgba(255, 255, 255, 0.747);
+    width:100%; 
+}
+#main td{
+    padding:15px;
+    border-bottom: 1px solid var(--basic-br-color);   
     font-size: 1em;
-    text-align: center;
+    color:var(--basic-txt-color); 
+    cursor: pointer;
 }
-.container ul{
-    margin-top:-15px;
-    display: none;
-} 
-.container li{
+#main i{
     font-size: 0.8em;
-    color: #979595;
-    float:right;
-    margin-left:5px;
-    padding-bottom: 15px;
+    color: #ccc;
+    font-style: normal;
 }
-.container div{
-    clear:right;
+#main td:hover,td:active{
+    padding:35px; 
 }
-.container div:nth-child(2){
+#main tr:nth-child(1) td{
     font-weight: bold;
+    font-size: 1.2em;
+    cursor:unset;
+} 
+#main tr:nth-child(1) td:active,#main tr:nth-child(1) td:hover{
+    padding:inherit;
 }
+#main td:nth-child(1){
+    width:20%;  
+}
+#main td:nth-child(2){
+    width:60%;
+}
+#main td:nth-child(3){
+    width:10%; 
+}
+ 
 .inp{
     border:1px solid var(--basic-br-color);
     border-radius: 3px;
@@ -139,36 +171,47 @@ nav li:nth-child(2){
 }
 .float_btn{
     position: fixed;
-    bottom: 30px;
-    right:50px;
+    bottom: 23%;
+    right:3%;
     display: block;
-    background-color:#0067ac;
-    color:white;
-    font-size:2em;
-    font-weight: bold;
-    padding:10px 18px;
-    border-radius: 100%;
-    box-shadow: 3px 3px #00000018;
-    z-index: 10000;
+    color:var(--basic-txt-color); 
+    font-size:5em;     
+    z-index: 10001; 
 }
-
+.fas:hover,.fas:hover,.far:hover,.far:hover{
+    color: #43D1AF;
+}
+.small{
+    font-size: 0.8em;
+    color:#aaa;
+    float:right;
+    display: block;
+    padding:10px 5px;
+}
 /******************* detail ****************************/
-#detail h1, #detail div{
-    width:80%;
-    margin:auto;
-    display: block;
-}
-#detail div{
-    border-top:1px solid var(--basic-br-color)
+#detail h1, #detail div{ 
+    clear:right;
+} 
+ 
+#detail div:nth-child(2){ 
+    width:10%; 
+    position: absolute;
+    left:20%;
+    margin-top:-30px;
+    font-size: 1.5em;
+} 
+#detail div:nth-child(4){
+    border-top:1px solid var(--basic-br-color);
+    padding-top:15px;
 }
 
-#new{
-	max-width: 50%;
-	margin: 10px auto;
+
+.new{
+	max-width: 50%; 
 	padding: 16px;
 }
 
-#new h1{
+.new h1{
 	background: #43D1AF;
 	padding: 20px;
 	text-align: center;
@@ -176,7 +219,7 @@ nav li:nth-child(2){
 	margin: -16px -16px 16px -16px;
 }
 
-#new .inp{
+.new .inp{
     -webkit-transition: all 0.30s ease-in-out;
 	box-sizing: border-box;
 	width: 100%;
@@ -187,7 +230,7 @@ nav li:nth-child(2){
 	color: #555;
 }
 
-#new .btn{
+.new .btn{
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;

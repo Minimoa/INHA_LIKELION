@@ -1,14 +1,38 @@
+<!--
+    detail
+    이정인
+    20.02.19
+    
+    정윤호
+    20.02.22
+    임시 테스트
+
+    이정인
+    20.02.22
+    css 수정 
+
+-->
 {% extends 'layout.html' %}
 {% block layoutblock %}
-<section id="new">   
-  <form action="" method="post">
-    <h1>단어 수정하기</h1>
-    {% csrf_token %}
-    <input type="text" class="inp" value="틀딱">
-    <textarea class="inp" rows="3" >늙은이. 어휴 정게(정치게시판) 할배들 틀니 딱딱거리는 소리가 여기까지 들리네 라는 표현에서 유래.
-    </textarea>
-    <button type="button" class="btn">수정</button>        
-  </form>
+<script>
+  $(function(){
+    $(".fa-trash-alt").click(function(){
+      var c = confirm("삭제하시겠습니까?");
+      var cid = $(this).attr("no");
+      if(c) location.href="/word/delete/"+cid;
+    });
+  });
+</script>
+<section id="detail">   
+
+    <h2>{{word.title}}</h2>
+    <div>
+      <a href="{% url 'edit' word.id %}" class="fas fa-edit"></a>
+      <a href="#" class="fas fa-trash-alt" no="{{word.id}}"></a>
+    </div>
+    <p class="small">{{word.writer}} | {{word.pub_date}}</p> 
+    <div>{{word.content}}</div>
+<!--임시 테스트--> 
+
 </section>
-  
-{% endblock %}
+{%endblock%}
