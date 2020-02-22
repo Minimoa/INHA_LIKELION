@@ -22,9 +22,9 @@
             <td>뜻</td>
             <td>등록일자</td>
         </tr>
-            {% if words %}
-            {% for word in words.all %}
-                <tr no="{{word.id}}">
+            {% if page_posts %}
+            {% for page_post in page_posts %}
+                <tr no="{{page_post.id}}">
                    
                 <!--
                     정윤호
@@ -33,15 +33,15 @@
                 
                     <h2>홈화면</h2>
                     <a href="{% url 'new' %}">글쓰기</a>
-                    <h2>단어명 : {{word.title}}</h2>
-                    <p>작성날짜 : {{word.pub_date}}</p>
-                    <p>작성자 : {{word.writer}}</p>
-                    <p>내용 : {{word.summary}}...<a href="{% url 'detail' word.id %}">more</a></p>
+                    <h2>단어명 : {{page_post.title}}</h2>
+                    <p>작성날짜 : {{page_post.pub_date}}</p>
+                    <p>작성자 : {{page_post.writer}}</p>
+                    <p>내용 : {{page_post.summary}}...<a href="{% url 'detail' page_post.id %}">more</a></p>
                
                 -->
-                    <td>{{word.title}}</td>
-                    <td>{{word.summary}}</td>
-                    <td><i>{{word.pub_date | date:"Y-m-d" }}</i></td> 
+                    <td>{{page_post.title}}</td>
+                    <td>{{page_post.summary}}</td>
+                    <td><i>{{page_post.pub_date | date:"Y-m-d" }}</i></td> 
                 </tr>
             {% endfor %} 
             {% else %}
@@ -53,7 +53,22 @@
             {%endif%} 
             
     </table>
-   
+    <ul class="paging"> 
+        {%if page_posts.has_previous%}
+                <li><a href="?page={{page_posts.previous_page_number}}" class="fas fa-arrow-left"></a></li>
+        {%endif%}
+        {%for i in page_posts.paginator.page_range%}
+                {% if i == page_posts.number%}
+                <li><a href="?page={{i}}" class="active">{{i}}</a></li>
+                {%else%}
+                <li><a href="?page={{i}}">{{i}}</a></li>
+                {%endif%}
+        {%endfor%}
+
+        {%if page_posts.has_next%}
+        <li><a href="?page={{page_posts.next_page_number}}" class="fas fa-arrow-right"></a></li> 
+        {%endif%} 
+    </ul> 
 </article>
 
 

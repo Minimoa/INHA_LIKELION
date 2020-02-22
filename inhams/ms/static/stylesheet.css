@@ -128,17 +128,13 @@ section{
     color: #ccc;
     font-style: normal;
 }
-#main td:hover,td:active{
-    padding:35px; 
-}
+ 
 #main tr:nth-child(1) td{
     font-weight: bold;
     font-size: 1.2em;
     cursor:unset;
 } 
-#main tr:nth-child(1) td:active,#main tr:nth-child(1) td:hover{
-    padding:inherit;
-}
+ 
 #main td:nth-child(1){
     width:20%;  
 }
@@ -187,6 +183,20 @@ section{
     float:right;
     display: block;
     padding:10px 5px;
+}
+.paging{
+    display: block;
+    width:80%;
+    margin:15px auto;
+    text-align: center;
+}
+.paging li{
+    display: inline-block;
+    font-size: 1.5em;
+    padding:15px; 
+}
+.active{ 
+    color:#43D1AF; 
 }
 /******************* detail ****************************/
 #detail h1, #detail div{ 

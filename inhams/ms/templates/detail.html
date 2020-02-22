@@ -21,6 +21,7 @@
       var cid = $(this).attr("no");
       if(c) location.href="/word/delete/"+cid;
     });
+ 
   });
 </script>
 <section id="detail">   
@@ -28,10 +29,10 @@
     <h2>{{word.title}}</h2>
     <div>
       <a href="{% url 'edit' word.id %}" class="fas fa-edit"></a>
-      <a href="#" class="fas fa-trash-alt" no="{{word.id}}"></a>
+      <a href="#" class="fas fa-trash-alt" no="{{word.id}}"></a> 
     </div>
     <p class="small">{{word.writer}} | {{word.pub_date}}</p> 
-    <div>{{word.content}}</div>
+    <div>{{word.content}}</div> 
 <!--임시 테스트--> 
 
 </section>
