@@ -1,13 +1,28 @@
 {% extends 'layout.html' %}
 {% block layoutblock %}
 <section id="new">   
-  <form action="" method="post">
+  <form action="{% url 'create' %}" method="POST">
     <h1>단어 추가하기</h1>
     {% csrf_token %}
-    <input type="text" class="inp" placeholder="어떤 단어인가요?">
-    <textarea class="inp" rows="3" placeholder="단어를 정의해주세요."></textarea>
-    <button type="button" class="btn">입력</button>        
+    <input type="text" name="title" id="title" class="inp" placeholder="어떤 단어인가요?" >
+    <input type="text" name="writer" id="writer" class="inp" placeholder="작성자 이름을 적어주세요." >
+    <textarea name="content" id="content" class="inp" rows="3" placeholder="단어를 정의해주세요."></textarea>
+    <button type="submit" class="btn">입력</button>        
   </form>
 </section>
   
 {% endblock %}
+
+<!--
+  정윤호
+  20.02.22
+
+  1. 작성자 폼(input) 추가
+  2. 각 입력 폼 태그에 
+    name="title" id="title" ,
+    name="writer" id="writer"
+    name="content" id="content"
+    추가
+  3. 버튼 타입 "submit"으로 변경
+
+-->
