@@ -49,3 +49,13 @@ def update(req,word_id):
     word.content = req.POST['content']
     word.save()
     return redirect('/') #redirect('/word/'+str(word_id))
+
+def sort_alphabet(req): # 가나다순 정렬
+    words = Word.objects
+    words = words.all().order_by('title')
+    return render(req, 'home.html', {'words':words})
+
+def sort_date(req): # 날짜순 정렬
+    words = Word.objects
+    words = words.all().order_by('pub_date')
+    return render(req, 'home.html', {'words':words})
